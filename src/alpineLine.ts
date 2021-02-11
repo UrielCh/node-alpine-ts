@@ -1,6 +1,9 @@
 /**
  * Created by uriel on 11/02/2021
  */
+
+import Url from "url-parse";
+
 export class AlpineLine {
   constructor(public originalLine: string) {}
   public remoteIP?: string;
@@ -37,14 +40,40 @@ export class AlpineLine {
   public requestTrailerLine?: string;
   public responseTrailerLine?: string;
 
-  public Cookie!: {[key:string]: string};
-  public Environment!: {[key:string]: string};
-  public RequestHeader!: {[key:string]: string};
-  public Note!: {[key:string]: string};
-  public ResponseHeader!: {[key:string]: string};
-  public Port!: {[key:string]: string};
-  public PID!: {[key:string]: string};
-  public Time!: {[key:string]: string};
-  public RequestTrailerLine!: {[key:string]: string};
-  public ResponseTrailerLine!: {[key:string]: string};
+  public Cookie!: { [key: string]: string };
+  public Environment!: { [key: string]: string };
+  public RequestHeader!: { [key: string]: string };
+  public Note!: { [key: string]: string };
+  public ResponseHeader!: { [key: string]: string };
+  public Port!: { [key: string]: string };
+  public PID!: { [key: string]: string };
+  public Time!: { [key: string]: string };
+  public RequestTrailerLine!: { [key: string]: string };
+  public ResponseTrailerLine!: { [key: string]: string };
+
+  private _url?: Url;
+  get url(): Url | null {
+    if (!this.request) return null;
+    if (!this._url) {
+      const [mtd, uri] = this.request.split(" ");
+      const proto = this.requestProtocol || "http";
+      const host = this.remoteHost || "dummy";
+      this._url = new Url(`${proto}://${host}${this.request}${uri}`);
+    }
+    return this._url;
+  }
+
+  get pathname(): string {
+    const url = this.url;
+    if (!url) return "";
+    const { pathname } = url;
+    return pathname;
+  }
+
+  get extension(): string {
+    const pathname = this.pathname;
+    const p = pathname.lastIndexOf(".");
+    if (p === -1) return "";
+    return pathname.substring(p);
+  }
 }
