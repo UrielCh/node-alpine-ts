@@ -23,7 +23,7 @@ describe('Buffer', function() {
         assert(xbuf.getUpto("x") === "b c");
         assert(!xbuf.hasMore());
         assert(xbuf.remaining() == 0);
-        assert(xbuf.getUpto('x') === undefined);
+        assert(xbuf.getUpto('x') === '');
     })
 
     it("should be good at looking, skipping and rewinding", function() {

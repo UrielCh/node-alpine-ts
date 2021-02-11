@@ -1,6 +1,8 @@
 # Alpine
 
-`alpine` is a parser for Apache mod_log log files. It supports the three most common log formats (the Common Log Format,
+`alpine2` is a fork of `alpine`, this version is writen in Typescript, and so contains de full typing.
+
+`alpine2` is a parser for Apache mod_log log files. It supports the three most common log formats (the Common Log Format,
 the Common Log Format with a vhost field and the Combined log format)
 and also allows you to specify custom log formats by passing it the LogFormat string used to generate the log file you want parsed.
 
@@ -22,16 +24,16 @@ The default log format is Alpine.LOGFORMATS.COMBINED.
 
 The simplest (if not all that useful) use case is
 
-```js
-var Alpine = require('alpine');
-var alpine = new Alpine("%h %s %B");
-var data = alpine.parseLine("www.brain-salad.com 403 4321");
+```typescript
+import Alpine from 'alpine';
+const alpine = new Alpine("%h %s %B");
+const data = alpine.parseLine("www.brain-salad.com 403 4321");
 console.log(data);
 ```
 
 which produces
 
-```js
+```typescript
 {
   originalLine: 'www.brain-salad.com 403 4321',
   remoteHost: 'www.brain-salad.com',
@@ -42,10 +44,10 @@ which produces
 
 ### Parse file in combined log format with callbacks
 
-```js
-var fs = require('fs')
-var Alpine = require('alpine');
-var alpine = new Alpine();
+```typescript
+import fs from 'fs';
+import Alpine from 'alpine';
+const alpine = new Alpine();
 alpine.parseReadStream(fs.createReadStream('access_log', {encoding: "utf8"}),
   function(data) {
     console.log("Status: " + data.status + ", request: " + data.request);
@@ -59,10 +61,10 @@ Alpine supports duplex streaming, but the stream it reads from must be a per-lin
 - Alpine().getObjectStream() returns a duplex stream that will write parsed objects.
 - Alpine().getStringStream() returns a duplex stream that will write the same parsed objects, but serialized using JSON.stringify()
 
-```js
-var fs = require('fs')
-var byline = require('byline');
-var Alpine = require('alpine');
+```typescript
+import fs from 'fs';
+import byline from 'byline';
+import Alpine from 'alpine';
 byline.createStream(fs.createReadStream('access_log', {encoding: "utf8"}))
   .pipe(new Alpine().getStringStream())
   .pipe(fs.createWriteStream("access.out"));

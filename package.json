@@ -2,8 +2,8 @@
     "name": "alpine2",
     "version": "0.3.0",
     "description": "Alpine - the Apache Log Parser",
-    "main": "src/alpine.js",
-    "types": "src/alpine.d.ts",
+    "main": "src/index.js",
+    "types": "src/index.d.ts",
     "directories": {
         "test": "test"
     },
@@ -55,5 +55,9 @@
     "bugs": {
         "url": "https://github.com/UrielCh/node-alpine/issues"
     },
-    "homepage": "https://github.com/UrielCh/node-alpine"
+    "homepage": "https://github.com/UrielCh/node-alpine",
+    "files": [
+        "src/*.js",
+        "src/*.d.ts"
+    ]
 }

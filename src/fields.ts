@@ -1,3 +1,7 @@
+/**
+ * Created by uriel on 11/02/2021
+ */
+
 export const SIMPLE_FIELDS_LIST = [
   "remoteIP",
   "localIP",

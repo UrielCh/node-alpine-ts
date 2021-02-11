@@ -1,8 +1,8 @@
 /**
- *
  * Alpine, the Apache Log Parser
  *
  * Created by blarsen on 02.10.14.
+ * Convert to Typescipt by uriel on 11/02/2021
  */
 
 "use strict";

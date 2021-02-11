@@ -1,3 +1,6 @@
+/**
+ * Created by uriel on 11/02/2021
+ */
 export class AlpineLine {
   constructor(public originalLine: string) {}
   public remoteIP?: string;
@@ -25,6 +28,7 @@ export class AlpineLine {
   public connectionStatus?: string;
   public bytesReceived?: string;
   public bytesSent?: string;
+  // removed from original version
   // public cookie?: string;
   public environment?: string;
   public requestHeader?: string;
@@ -43,14 +47,4 @@ export class AlpineLine {
   public Time!: {[key:string]: string};
   public RequestTrailerLine!: {[key:string]: string};
   public ResponseTrailerLine!: {[key:string]: string};
-
-  // remoteHost?: string; // remote IP
-  // logname?: string;
-  // remoteUser?: string;
-  // time?: string; // '01/Mar/2020:13:13:11 +0100',
-  // request?: string; // 'GET /disponible?q=serrurier%20ermont&cid=8083431561&p=&x=egt&z=1006014-9056594&gclid=EAIaIQobChMIwPu5t4qs3AIVAQAAAB0BAAAAEAAYACAAEgJVzfD_BwE HTTP/1.1',
-  // status?: string; // '200',
-  // sizeCLF?: string; // '6473',
-  // "RequestHeader Referer"?: string; // '-',
-  // "RequestHeader User-agent"?: string; // 'AdsBot-Google (+http://www.google.com/adsbot.html)'
 }

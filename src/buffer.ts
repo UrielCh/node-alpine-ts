@@ -1,25 +1,24 @@
 /**
  * Created by blarsen on 03.10.14.
+ * Convert to Typescipt by uriel on 11/02/2021
  */
-
-"use strict";
 
 export class Buffer {
   constructor(public readonly data: string, public index: number) {}
 
-  skipSpaces() {
+  skipSpaces(): void {
     while (this.hasMore() && this.data[this.index] == " ") this.index++;
   }
 
   getUptoX(char: string): string {
     const str = this.getUpto(char);
-    if (str === undefined)
+    if (!str)
       throw new Error(`getUpto("${char}") failed in "${this.data}"`);
     return str;
   }
 
-  getUpto(char: string) {
-    if (!this.hasMore()) return undefined;
+  getUpto(char: string): string {
+    if (!this.hasMore()) return '';
     let result = "";
     while (
       this.hasMore() &&
@@ -36,25 +35,25 @@ export class Buffer {
     this.index = Math.min(this.index + count, this.data.length);
   }
 
-  rewind() {
+  rewind(): void {
     this.index = 0;
   }
 
-  peek(): string | undefined {
-    if (!this.hasMore()) return undefined;
+  peek(): string {
+    if (!this.hasMore()) return '';
     return this.data[this.index];
   }
 
-  get rest(): string {
+  rest(): string {
     if (!this.hasMore()) return '';
     return this.data.substring(this.index);
   }
 
-  hasMore() {
+  hasMore(): boolean {
     return this.remaining() > 0;
   }
 
-  remaining() {
+  remaining(): number {
     return this.data.length - this.index;
   }
 }
