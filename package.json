@@ -23,7 +23,7 @@
         "typescript": "^4.1.5"
     },
     "scripts": {
-        "clean": "rimraf src/*.map src/*.d.ts",
+        "clean": "rimraf {src,test}/{*.map,*.d.ts,*.js}",
         "test": "mocha --require ts-node/register test/*.test.ts",
         "build": "tsc -p .",
         "prepare": "npm run build"
