@@ -2,7 +2,6 @@
  * Created by blarsen on 03.10.14.
  */
 
-
 import { Alpine } from "../src/alpine";
 import assert from 'assert';
 import { StringReader } from '../src/stringreader';
@@ -74,12 +73,9 @@ describe('Alpine', function() {
 
     it("should handle a combined log format line correctly", function() {
         const a = new Alpine();
-        console.log(a);
         const result = a.parseLine(
             '109.247.114.201 - - [01/Oct/2014:12:19:00 +0200] "GET /altibox/js/commons/jquery.xml2json.js?_=1412158740334 HTTP/1.1" 200 2701 "https://www.sfjbb.no/" "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4"'
         );
-        console.log(result);
-        console.log(result.RequestHeader);
         
         assert(result.remoteHost === "109.247.114.201");
         assert(result.RequestHeader['User-agent'] === "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4");

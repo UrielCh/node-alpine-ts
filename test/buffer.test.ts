@@ -28,14 +28,14 @@ describe('Buffer', function() {
 
     it("should be good at looking, skipping and rewinding", function() {
         const xbuf = new Buffer("abcdef", 0);
-        assert(xbuf.lookingAt() === "a", "It doesn't know what it's looking at");
+        assert(xbuf.peek() === "a", "It doesn't know what it's looking at");
         xbuf.skip(1);
-        assert(xbuf.lookingAt() === "b");
+        assert(xbuf.peek() === "b");
         xbuf.skip(2);
-        assert(xbuf.lookingAt() === "d");
+        assert(xbuf.peek() === "d");
         xbuf.skip(12);
         assert(!xbuf.hasMore());
         xbuf.rewind();
-        assert(xbuf.lookingAt() == "a");
+        assert(xbuf.peek() == "a");
     })
 })

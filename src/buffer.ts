@@ -5,7 +5,7 @@
 "use strict";
 
 export class Buffer {
-  constructor(private data: string, private index: number) {}
+  constructor(public readonly data: string, public index: number) {}
 
   skipSpaces() {
     while (this.hasMore() && this.data[this.index] == " ") this.index++;
@@ -40,9 +40,14 @@ export class Buffer {
     this.index = 0;
   }
 
-  lookingAt() {
+  peek(): string | undefined {
     if (!this.hasMore()) return undefined;
     return this.data[this.index];
+  }
+
+  get rest(): string {
+    if (!this.hasMore()) return '';
+    return this.data.substring(this.index);
   }
 
   hasMore() {

@@ -23,6 +23,7 @@ import {
 
 export class Alpine {
   private formatfields: Field[] = [];
+  private logformat!: string;
 
   public static LOGFORMATS = {
     COMBINED: '%h %l %u %t "%r" %>s %b "%{Referer}i" "%{User-agent}i"',
@@ -30,9 +31,9 @@ export class Alpine {
     CLF_VHOST: '%v %h %l %u %t "%r" %>s %b',
   };
 
-  constructor(private logformat?: string) {
-    if (logformat) this.setLogFormat(logformat);
-    else this.setLogFormat(Alpine.LOGFORMATS.COMBINED);
+  constructor(logformat?: string) {
+    logformat = logformat || Alpine.LOGFORMATS.COMBINED;
+    this.setLogFormat(logformat);
   }
 
   setLogFormat(logformat: string) {
@@ -47,22 +48,21 @@ export class Alpine {
   parseLine(line: string): AlpineLine {
     const result = new AlpineLine(line);
     const buf = new Buffer(line, 0);
-
-    this.formatfields.forEach(function (field: Field) {
+    this.formatfields.forEach((field: Field) => {
       buf.skipSpaces();
       let val: string;
       if (field.isQuoted) {
-        if (!(buf.lookingAt() === '"'))
-          throw new Error("Field defined as quoted was not quoted");
+        if (!(buf.peek() === '"'))
+          throw new Error(`Field "${field.name}" defined as quoted was not quoted here: ${buf.rest}`);
         buf.skip();
         val = buf.getUptoX('"');
-        buf.skipSpaces();
+        buf.skip();
       } else if (field.isDate) {
-        if (!(buf.lookingAt() === "["))
+        if (!(buf.peek() === "["))
           throw new Error("Time field is not enclosed in brackets");
         buf.skip();
         val = buf.getUptoX("]");
-        buf.skipSpaces();
+        buf.skip();
       } else {
         val = buf.getUptoX(" ");
       }
@@ -77,7 +77,6 @@ export class Alpine {
         result[field.name as SimpleFields] = val;
       }
     });
-
     return result;
   }
   getObjectStream() {
