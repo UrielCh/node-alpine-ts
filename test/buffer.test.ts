@@ -2,18 +2,18 @@
  * Created by blarsen on 03.10.14.
  */
 
-var Buffer = require("../buffer");
-var assert = require('assert');
+import { Buffer } from "../src/buffer";
+import assert from 'assert';
 
-describe('Buffer', function () {
-    var buf;
+describe('Buffer', function() {
+    let buf: Buffer;
 
-    before(function () {
+    before(function() {
         buf = new Buffer("a b", 0);
     })
 
-    it("should handle basic functions ok", function () {
-        var xbuf = new Buffer("a b c", 0);
+    it("should handle basic functions ok", function() {
+        const xbuf = new Buffer("a b c", 0);
         assert(xbuf.remaining() == 5);
         assert(xbuf.hasMore());
         assert(xbuf.getUpto(" ") === "a");
@@ -26,8 +26,8 @@ describe('Buffer', function () {
         assert(xbuf.getUpto('x') === undefined);
     })
 
-    it("should be good at looking, skipping and rewinding", function () {
-        var xbuf = new Buffer("abcdef", 0);
+    it("should be good at looking, skipping and rewinding", function() {
+        const xbuf = new Buffer("abcdef", 0);
         assert(xbuf.lookingAt() === "a", "It doesn't know what it's looking at");
         xbuf.skip(1);
         assert(xbuf.lookingAt() === "b");
@@ -37,8 +37,5 @@ describe('Buffer', function () {
         assert(!xbuf.hasMore());
         xbuf.rewind();
         assert(xbuf.lookingAt() == "a");
-
-
     })
-
 })

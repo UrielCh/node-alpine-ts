@@ -30,7 +30,7 @@ export class Alpine {
     CLF_VHOST: '%v %h %l %u %t "%r" %>s %b',
   };
 
-  constructor(private logformat: string) {
+  constructor(private logformat?: string) {
     if (logformat) this.setLogFormat(logformat);
     else this.setLogFormat(Alpine.LOGFORMATS.COMBINED);
   }

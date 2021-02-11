@@ -33,16 +33,16 @@ export class AlpineLine {
   public requestTrailerLine?: string;
   public responseTrailerLine?: string;
 
-  public Cookie?: {[key:string]: string};
-  public Environment?: {[key:string]: string};
-  public RequestHeader?: {[key:string]: string};
-  public Note?: {[key:string]: string};
-  public ResponseHeader?: {[key:string]: string};
-  public Port?: {[key:string]: string};
-  public PID?: {[key:string]: string};
-  public Time?: {[key:string]: string};
-  public RequestTrailerLine?: {[key:string]: string};
-  public ResponseTrailerLine?: {[key:string]: string};
+  public Cookie!: {[key:string]: string};
+  public Environment!: {[key:string]: string};
+  public RequestHeader!: {[key:string]: string};
+  public Note!: {[key:string]: string};
+  public ResponseHeader!: {[key:string]: string};
+  public Port!: {[key:string]: string};
+  public PID!: {[key:string]: string};
+  public Time!: {[key:string]: string};
+  public RequestTrailerLine!: {[key:string]: string};
+  public ResponseTrailerLine!: {[key:string]: string};
 
   // remoteHost?: string; // remote IP
   // logname?: string;

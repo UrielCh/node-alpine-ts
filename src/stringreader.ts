@@ -15,6 +15,7 @@ export class StringReader extends Readable {
     }
 }
 
+export default StringReader;
 
 // function StringReader(str: string) {
 //     Readable.call(this);

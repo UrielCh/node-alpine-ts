@@ -1,4 +1,4 @@
-#Alpine
+# Alpine
 
 `alpine` is a parser for Apache mod_log log files. It supports the three most common log formats (the Common Log Format,
 the Common Log Format with a vhost field and the Combined log format)
@@ -19,7 +19,9 @@ The default log format is Alpine.LOGFORMATS.COMBINED.
 ## Examples
 
 ### Parse from string using custom log format
+
 The simplest (if not all that useful) use case is
+
 ```js
 var Alpine = require('alpine');
 var alpine = new Alpine("%h %s %B");
@@ -39,6 +41,7 @@ which produces
 ```
 
 ### Parse file in combined log format with callbacks
+
 ```js
 var fs = require('fs')
 var Alpine = require('alpine');
@@ -50,6 +53,7 @@ alpine.parseReadStream(fs.createReadStream('access_log', {encoding: "utf8"}),
 ```
 
 ### Use streams
+
 Alpine supports duplex streaming, but the stream it reads from must be a per-line stream, as implemented by the byline module.
 
 - Alpine().getObjectStream() returns a duplex stream that will write parsed objects.
@@ -70,7 +74,3 @@ Alpine assumes that the log format contains fields, quotation marks (surrounding
 
 Alpine will probably only work with log files created by Apache HTTPD version 2.0.46 and later - earlier versions logged the contents
 of the %r, %i and %o fields without quoting the data, making logs irregular and unpredictable.
-
-
-
-

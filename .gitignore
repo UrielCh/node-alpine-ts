@@ -1,5 +1,8 @@
 node_modules
 .idea
+**/*.map
 src/*.js
 src/*.d.ts
+test/*.js
+test/*.d.ts
 package-lock.json
