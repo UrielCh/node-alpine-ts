@@ -1,38 +1,54 @@
 {
-  "name": "alpine",
-  "version": "0.2.1",
-  "description": "Alpine - the Apache Log Parser",
-  "main": "alpine.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "byline": "^4.1.1",
-    "underscore.string": "^2.3.3",
-    "through2": "^0.6.2"
-  },
-  "devDependencies": {
-    "mocha": "^1.21.4"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blarsen/node-alpine.git"
-  },
-  "keywords": [
-    "apache",
-    "mod_log",
-    "log",
-    "parser",
-    "combined",
-    "clf"
-  ],
-  "author": "Bjørn Hell Larsen <blarsen@nonews.net>",
-  "license": "Apache License 2.",
-  "bugs": {
-    "url": "https://github.com/blarsen/node-alpine/issues"
-  },
-  "homepage": "https://github.com/blarsen/node-alpine"
+    "name": "alpine",
+    "version": "0.3.0",
+    "description": "Alpine - the Apache Log Parser",
+    "main": "src/alpine.js",
+    "types": "src/alpine.d.ts",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "byline": "^4.1.1",
+        "through2": "^0.6.2",
+        "underscore.string": "^3.3.5"
+    },
+    "devDependencies": {
+        "@types/byline": "^4.2.32",
+        "@types/through2": "^2.0.36",
+        "@types/underscore.string": "^0.0.38",
+        "mocha": "^8.2.1"
+    },
+    "scripts": {
+        "test": "mocha",
+        "build": "tsc -p .",
+        "prepare": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/blarsen/node-alpine.git"
+    },
+    "keywords": [
+        "apache",
+        "mod_log",
+        "log",
+        "parser",
+        "combined",
+        "clf"
+    ],
+    "author": "uriel chemouni <uchemouni@gmail.com>",
+    "contributors": [{
+            "name": "Bjørn Hell Larsen",
+            "email": "blarsen@nonews.net"
+        },
+        {
+            "name": "uriel chemouni",
+            "email": "uchemouni@gmail.com",
+            "url": "https://urielch.github.io/urielch/"
+        }
+    ],
+    "license": "Apache License 2.",
+    "bugs": {
+        "url": "https://github.com/blarsen/node-alpine/issues"
+    },
+    "homepage": "https://github.com/blarsen/node-alpine"
 }
