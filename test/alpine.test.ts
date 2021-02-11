@@ -81,6 +81,7 @@ describe('Alpine', function() {
         assert(result.RequestHeader['User-agent'] === "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4");
         assert(result.RequestHeader['Referer'] === "https://www.sfjbb.no/");
         assert(result.sizeCLF === "2701", "Wrong size: " + result.sizeCLF);
+        assert(result.extension === ".js", "Wrong extension: " + result.extension);
     })
 
     it("should let me serve it a readstream and do per-line callbacks", function(done) {
