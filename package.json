@@ -1,5 +1,5 @@
 {
-    "name": "alpine",
+    "name": "alpine2",
     "version": "0.3.0",
     "description": "Alpine - the Apache Log Parser",
     "main": "src/alpine.js",
@@ -8,18 +8,23 @@
         "test": "test"
     },
     "dependencies": {
-        "byline": "^4.1.1",
+        "byline": "^5.0.0",
         "through2": "^0.6.2",
         "underscore.string": "^3.3.5"
     },
     "devDependencies": {
         "@types/byline": "^4.2.32",
+        "@types/mocha": "^8.2.0",
         "@types/through2": "^2.0.36",
         "@types/underscore.string": "^0.0.38",
-        "mocha": "^8.2.1"
+        "mocha": "^8.2.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.1.5"
     },
     "scripts": {
-        "test": "mocha",
+        "clean": "rimraf src/*.map src/*.d.ts",
+        "test": "mocha --require ts-node/register test/*.test.ts",
         "build": "tsc -p .",
         "prepare": "npm run build"
     },
@@ -48,7 +53,7 @@
     ],
     "license": "Apache License 2.",
     "bugs": {
-        "url": "https://github.com/blarsen/node-alpine/issues"
+        "url": "https://github.com/UrielCh/node-alpine/issues"
     },
-    "homepage": "https://github.com/blarsen/node-alpine"
+    "homepage": "https://github.com/UrielCh/node-alpine"
 }
