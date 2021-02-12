@@ -6,3 +6,4 @@ src/*.d.ts
 test/*.js
 test/*.d.ts
 package-lock.json
+.nyc_output
