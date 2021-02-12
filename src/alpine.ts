@@ -10,7 +10,6 @@
 import { Buffer } from "./buffer";
 import { AlpineLine } from "./alpineLine";
 import byline from "byline";
-import _ from "underscore.string";
 import through2 from "through2";
 
 import {
@@ -166,10 +165,12 @@ function parseLogFormat(logformat: string): Field[] {
 }
 
 function stripQuotes(text: string): string {
-  if (
-    (_.startsWith(text, '"') && _.endsWith(text, '"')) ||
-    (_.startsWith(text, "[") && _.endsWith(text, "]"))
-  )
-    return text.substr(1, text.length - 2);
+  const length = text.length;
+  if (length <= 2)
+    return text;
+  const c1 = text[0];
+  const c2 = text[length - 1];
+  if ((c1 === '"' && c2 === '"') || (c1 === '[' && c2 === ']'))
+    return text.substr(1, length - 2);
   return text;
 }

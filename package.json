@@ -9,15 +9,13 @@
     },
     "dependencies": {
         "byline": "^5.0.0",
-        "through2": "^0.6.2",
-        "underscore.string": "^3.3.5"
+        "through2": "^4.0.2"
     },
     "devDependencies": {
         "@types/byline": "^4.2.32",
         "@types/mocha": "^8.2.0",
         "@types/through2": "^2.0.36",
-        "@types/underscore.string": "^0.0.38",
-        "mocha": "^8.2.1",
+        "mocha": "^8.3.0",
         "nyc": "^15.1.0",
         "rimraf": "^3.0.2",
         "ts-node": "^9.1.1",
@@ -31,7 +29,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/blarsen/node-alpine.git"
+        "url": "https://github.com/UrielCh/node-alpine-ts.git"
     },
     "keywords": [
         "apache",
@@ -42,7 +40,8 @@
         "clf"
     ],
     "author": "uriel chemouni <uchemouni@gmail.com>",
-    "contributors": [{
+    "contributors": [
+        {
             "name": "Bjørn Hell Larsen",
             "email": "blarsen@nonews.net"
         },
@@ -54,9 +53,9 @@
     ],
     "license": "Apache License 2.",
     "bugs": {
-        "url": "https://github.com/UrielCh/node-alpine/issues"
+        "url": "https://github.com/UrielCh/node-alpine-ts/issues"
     },
-    "homepage": "https://github.com/UrielCh/node-alpine",
+    "homepage": "https://github.com/UrielCh/node-alpine-ts",
     "files": [
         "src/*.js",
         "src/*.d.ts"
