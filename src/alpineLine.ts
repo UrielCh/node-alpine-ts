@@ -2,7 +2,8 @@
  * Created by uriel on 11/02/2021
  */
 
-import Url from "url-parse";
+import url from 'url';
+import querystring from 'querystring';
 
 export class AlpineLine {
   constructor(public originalLine: string) {}
@@ -51,30 +52,42 @@ export class AlpineLine {
   public RequestTrailerLine!: { [key: string]: string };
   public ResponseTrailerLine!: { [key: string]: string };
 
-  private _url?: Url;
+  private _url?: URL;
   private _mtd?: string;
-  get url(): Url | null {
-    if (!this.request) return null;
+
+  get url(): URL {
     if (!this._url) {
-      const [mtd, uri] = this.request.split(" ");
-      this._mtd = mtd;
-      const proto = this.requestProtocol || "http";
-      const host = this.logname || "dummy";
-      this._url = new Url(`${proto}://${host}${uri}`);
+      if (!this.request) {
+        this._url = new URL(`http://-`)//, "dummy", true);
+      } else {
+        const [mtd, uri] = this.request.split(" ");
+        this._mtd = mtd;
+        const proto = this.requestProtocol || "http";
+        const host = this.logname || "-";
+        this._url = new URL(`${proto}://${host}${uri}`)//, "dummy", true);
+      }
     }
     return this._url;
   }
 
+  getQuery(param?: string): string | null {
+    if (!param) {
+      return this.url.search;
+    }
+    return this.url.searchParams.get(param);
+  }
+
+  getQueryAll(param: string): string[] | null {
+    return this.url.searchParams.getAll(param);
+  }
+
   get method(): string {
     this.url;
-    return this._mtd || '';
+    return this._mtd || "";
   }
 
   get pathname(): string {
-    const url = this.url;
-    if (!url) return "";
-    const { pathname } = url;
-    return pathname;
+    return this.url.pathname;
   }
 
   get extension(): string {

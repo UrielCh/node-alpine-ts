@@ -2,6 +2,9 @@
     "files.exclude": {
         "src/*.d.ts": true,
         "src/*.js": true,
-        "src/*.map": true
+        "src/*.map": true,
+        "test/*.d.ts": true,
+        "test/*.js": true,
+        "test/*.map": true
     }
 }

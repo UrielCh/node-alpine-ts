@@ -82,6 +82,8 @@ describe('Alpine', function() {
         assert(result.RequestHeader['Referer'] === "https://www.sfjbb.no/");
         assert(result.sizeCLF === "2701", "Wrong size: " + result.sizeCLF);
         assert(result.extension === ".js", "Wrong extension: " + result.extension);
+        assert(result.pathname === "/altibox/js/commons/jquery.xml2json.js", "Wrong pathname: " + result.pathname);
+        assert(result.method === "GET", "Wrong method: " + result.method);
     })
 
     it("should let me serve it a readstream and do per-line callbacks", function(done) {
