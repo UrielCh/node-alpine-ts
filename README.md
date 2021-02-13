@@ -1,12 +1,12 @@
-# Alpine
+# Alpine-ts
 
-`alpine-ts` is a fork of `alpine`, this version is writen in Typescript, so contains a full typing.
+[alpine-ts](https://www.npmjs.com/package/alpine-ts) is a fork of [alpine](https://www.npmjs.com/package/alpine), this version is writen in Typescript, so contains a full typing.
 
 [![Actions Status](https://github.com/UrielCh/nnode-alpine-ts/workflows/Workflow/badge.svg)](https://github.com/UrielCh/node-alpine-ts/actions)
 [![Coverage Status](https://coveralls.io/repos/github/UrielCh/node-alpine-ts/badge.svg?branch=master)](https://coveralls.io/github/UrielCh/node-alpine-ts?branch=master)
 [![Package Version](https://img.shields.io/npm/v/node-alpine-ts.svg)](https://www.npmjs.com/package/alpine-ts)
-![](https://img.shields.io/npm/dt/alpine-ts.svg)
-![](https://img.shields.io/npm/l/alpine-ts.svg)
+![downloads](https://img.shields.io/npm/dt/alpine-ts.svg)
+![license](https://img.shields.io/npm/l/alpine-ts.svg)
 
 `alpine-ts` is a parser for Apache mod_log log files. It supports the three most common log formats 
 
