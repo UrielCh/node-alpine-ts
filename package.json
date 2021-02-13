@@ -1,7 +1,7 @@
 {
     "name": "alpine-ts",
-    "version": "0.3.1",
-    "description": "Alpine - the Apache Log Parser in Typescript",
+    "version": "0.3.2",
+    "description": "Alpine-ts - the Apache Log Parser in Typescript",
     "main": "src/index.js",
     "types": "src/index.d.ts",
     "directories": {
@@ -41,8 +41,7 @@
         "clf"
     ],
     "author": "uriel chemouni <uchemouni@gmail.com>",
-    "contributors": [
-        {
+    "contributors": [{
             "name": "Bjørn Hell Larsen",
             "email": "blarsen@nonews.net"
         },
