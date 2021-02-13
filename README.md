@@ -4,7 +4,7 @@
 
 [![Actions Status](https://github.com/UrielCh/node-alpine-ts/workflows/coveralls-on-push/badge.svg)](https://github.com/UrielCh/node-alpine-ts/actions)
 [![Coverage Status](https://coveralls.io/repos/github/UrielCh/node-alpine-ts/badge.svg?branch=master)](https://coveralls.io/github/UrielCh/node-alpine-ts?branch=master)
-[![Package Version](https://img.shields.io/npm/v/node-alpine-ts.svg)](https://www.npmjs.com/package/alpine-ts)
+[![Package Version](https://img.shields.io/npm/v/alpine-ts.svg)](https://www.npmjs.com/package/alpine-ts)
 ![downloads](https://img.shields.io/npm/dt/alpine-ts.svg)
 ![license](https://img.shields.io/npm/l/alpine-ts.svg)
 
