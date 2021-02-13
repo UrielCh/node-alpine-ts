@@ -2,9 +2,19 @@
 
 `alpine-ts` is a fork of `alpine`, this version is writen in Typescript, so contains a full typing.
 
-`alpine-ts` is a parser for Apache mod_log log files. It supports the three most common log formats (the Common Log Format,
-the Common Log Format with a vhost field and the Combined log format)
-and also allows you to specify custom log formats by passing it the LogFormat string used to generate the log file you want parsed.
+[![Actions Status](https://github.com/UrielCh/nnode-alpine-ts/workflows/Workflow/badge.svg)](https://github.com/UrielCh/node-alpine-ts/actions)
+[![Coverage Status](https://coveralls.io/repos/github/UrielCh/node-alpine-ts/badge.svg?branch=master)](https://coveralls.io/github/UrielCh/node-alpine-ts?branch=master)
+[![Package Version](https://img.shields.io/npm/v/node-alpine-ts.svg)](https://www.npmjs.com/package/alpine-ts)
+![](https://img.shields.io/npm/dt/alpine-ts.svg)
+![](https://img.shields.io/npm/l/alpine-ts.svg)
+
+`alpine-ts` is a parser for Apache mod_log log files. It supports the three most common log formats 
+
+- the Common Log Format
+- the Common Log Format with a vhost field
+- the Combined log format
+
+And also allows you to specify custom log formats by passing it the [LogFormat string](http://httpd.apache.org/docs/current/mod/mod_log_config.html) used to generate the log file you want parsed.
 
 ## Predefined log formats
 
@@ -14,7 +24,7 @@ Alpine has these three predefined log formats:
 - Alpine.LOGFORMATS.CLF
 - Alpine.LOGFORMATS.CLF_VHOST
 
-that can be passed as arguments to the constructor or configured with the .setLogFormat() method.
+That can be passed as arguments to the constructor or configured with the .setLogFormat() method.
 
 The default log format is Alpine.LOGFORMATS.COMBINED.
 
