@@ -30,6 +30,7 @@ describe('AlpineLine', function() {
         );       
         const url = result.url;
         assert.strictEqual(url.toString(), 'http://-/');
+        assert.strictEqual(result.timestamp, 1154093230000);
     })
 
 })

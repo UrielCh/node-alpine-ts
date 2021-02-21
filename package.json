@@ -1,6 +1,6 @@
 {
     "name": "alpine-ts",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "Alpine-ts - the Apache Log Parser in Typescript",
     "main": "src/index.js",
     "types": "src/index.d.ts",

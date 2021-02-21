@@ -96,4 +96,14 @@ export class AlpineLine {
     if (p === -1) return "";
     return pathname.substring(p);
   }
+
+  get date(): Date {
+    if (!this.time)
+      return new Date();
+    return new Date(this.time.replace(':',' '));
+  }
+
+  get timestamp(): number {
+    return this.date.getTime();
+  }
 }
