@@ -8,7 +8,7 @@
 ![downloads](https://img.shields.io/npm/dt/alpine-ts.svg)
 ![license](https://img.shields.io/npm/l/alpine-ts.svg)
 
-`alpine-ts` is a parser for Apache mod_log log files. It supports the three most common log formats 
+`alpine-ts` is a parser for Apache mod_log log files. It supports the three most common log formats
 
 - the Common Log Format
 - the Common Log Format with a vhost field
